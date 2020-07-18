@@ -1,0 +1,42 @@
+body {
+    @include flexbox(center, false, false, column);
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent, rgba(0, 0, 0, 0.5)), url('../img/bg_pattern.jpg');
+    color: $font-color;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        height: 0;
+    }
+}
+
+h1 {
+    margin-bottom: 21px;
+    font-family: 'Exo2', sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+
+    @media (max-width: $grid-breakpoint-lg) {
+        margin-top: 20px;
+    }
+
+    @media (max-width: $grid-breakpoint-sm) {
+        font-size: 30px;
+        text-align: center;
+        line-height: 1.2;
+    }
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    color: inherit;
+}
+
+.hidden {
+    display: none !important;
+}

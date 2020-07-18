@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+
+    @media (min-width: $grid-breakpoint-sm) {
+        & {
+            max-width: $container-max-width-sm;           
+        }
+    }
+
+    @media (min-width: $grid-breakpoint-md) {
+        & {
+            max-width: $container-max-width-md;
+        }
+    }
+      
+    @media (min-width: $grid-breakpoint-lg) {
+        & {
+            max-width: $container-max-width-lg; 
+        }
+    }
+      
+    @media (min-width: $grid-breakpoint-xl) {
+        & {
+            max-width: $container-max-width-xl;
+        }
+    }
+    @media (min-width: $grid-breakpoint-xxl) {
+        & {
+            max-width: $container-max-width-xxl;
+        }
+    }
+}

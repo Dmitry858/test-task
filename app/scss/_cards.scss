@@ -1,0 +1,209 @@
+.cards {
+    @include flexbox(space-between, center, wrap);
+    width: 100%;
+
+    @media (max-width: $grid-breakpoint-lg) {
+        justify-content: center;
+    }
+}
+
+.card-col {
+    @media (max-width: $grid-breakpoint-lg) {
+        margin: 0 15px 15px;
+    }
+
+    @media (max-width: $grid-breakpoint-sm) {
+        margin: 0 0 15px;
+    }
+}
+
+.card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    padding: 17px 38px 17px 48px;
+    color: #666666;
+    border-right: 4px solid $primary-color;
+    border-bottom: 4px solid $primary-color;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    @include beveled-corners($primary-color, 4px, $card-bg-color, 30px); 
+
+    &::before, &::after {
+        position: absolute;
+        background-color: $primary-color;
+        content: '';
+    }
+
+    &::before {
+        top: 0;
+        right: 0;
+        height: 4px;
+        width: calc(320px - 48px);
+        border-top-right-radius: 20px;
+
+        @media (max-width: $grid-breakpoint-xsm) {
+            width: calc(298px - 48px);
+        }
+    }
+
+    &::after {
+        bottom: 0;
+        left: 0;
+        width: 4px;
+        height: calc(480px - 48px);
+        border-bottom-left-radius: 20px;
+    }
+
+    &:not(.selected):not(.disabled):hover::before, &:not(.selected):not(.disabled):hover::after {
+        background-color: $primary-hover-color;
+    }
+
+    &.selected::before, &.selected::after {
+        background-color: $selected-color;
+    }
+
+    &.selected.hover::before, &.selected.hover::after {
+        background-color: $selected-hover-color;
+    }
+
+    &.disabled::before, &.disabled::after {
+        background-color: $disabled-color;
+    }
+
+    h3 {
+        margin-left: -2px;
+        margin-bottom: 20px;
+        line-height: 0.68;
+        font-size: 48px;
+        color: #000000;
+
+        span {
+            margin-left: 2px;
+            font-size: 24px;
+        }
+    }
+
+    .description {
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 1.2;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    img {
+        position: absolute;
+        bottom: -90px;
+        left: -23px;
+        width: 116.5%;
+    }
+
+    .label-weight {
+        @include flexbox(center, center, false, column);
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: $primary-color;
+        color: #ffffff;
+        font-size: 2.5rem;
+        line-height: 1;
+
+        span {
+            font-size: 1.2rem;
+        }
+    }
+
+    &:not(.selected):not(.disabled):hover {
+        border-right: 4px solid $primary-hover-color;
+        border-bottom: 4px solid $primary-hover-color;  
+        @include beveled-corners($primary-hover-color, 4px, $card-bg-color, 30px);
+        
+        .label-weight {
+            background: $primary-hover-color;
+        }
+    }
+
+    &.selected {
+        border-right: 4px solid $selected-color;
+        border-bottom: 4px solid $selected-color;  
+        @include beveled-corners($selected-color, 4px, $card-bg-color, 30px);
+        
+        .label-weight {
+            background: $selected-color;
+        }
+    }
+
+    &.selected.hover {
+        border-right: 4px solid $selected-hover-color;
+        border-bottom: 4px solid $selected-hover-color;  
+        @include beveled-corners($selected-hover-color, 4px, $card-bg-color, 30px);
+        
+        .label-weight {
+            background: $selected-hover-color;
+        }
+
+        .legend {
+            color: $selected-hover-color;
+        }
+    }
+
+    &.disabled {
+        border-right: 4px solid $disabled-color;
+        border-bottom: 4px solid $disabled-color;  
+        @include beveled-corners($disabled-color, 4px, $card-bg-color, 30px);
+
+        img {
+            opacity: 0.5;
+        }
+
+        h3 {
+            opacity: 0.1; 
+        }
+
+        p {
+            opacity: 0.2; 
+        }
+        
+        .label-weight {
+            background: $disabled-color;
+        }
+    }
+
+    @media (max-width: $grid-breakpoint-xsm) {
+        width: 298px;
+    }
+}
+
+.comment {
+    margin-top: 11px;
+    margin-bottom: 9px;
+    font-size: 13px;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: $primary-color;
+        border-bottom: 1px dashed $primary-color;
+
+        &:hover {
+            border-bottom: none;
+        }
+    }
+}
+
+.card:not(.selected):not(.disabled):hover + .comment a {
+    color: $primary-hover-color;
+    border-bottom: 1px dashed $primary-hover-color;
+}
+
+.comment-disabled {
+    color: #ffff66;
+}

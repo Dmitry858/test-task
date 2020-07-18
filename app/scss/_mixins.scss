@@ -1,0 +1,26 @@
+@mixin beveled-corners($borderColor, $borderWidth, $bgColor, $tl:0) {
+    background-color: $bgColor;
+    background:
+    linear-gradient(135deg, transparent $tl, $borderColor $tl, $borderColor calc(#{$tl} + #{$borderWidth}), $bgColor calc(#{$tl} + #{$borderWidth})) top left / 98% 98%,
+    linear-gradient(-45deg, $bgColor 80%, transparent 80%) bottom right / 99% 97%,
+    radial-gradient($bgColor 72%, $borderColor 28%) 100.1% 1px / 11% 5%,
+    radial-gradient(transparent 72%, $borderColor 28%) 1px 100.2% / 8% 6%;
+    background-repeat: no-repeat;
+}
+
+@mixin flexbox($jc: false, $ai: false, $fw: false, $fd: false) {
+    display: -ms-flexbox;
+    display: flex;
+    @if $jc {
+        justify-content: $jc;
+    }
+    @if $ai {
+        align-items: $ai;
+    }
+    @if $fw {
+        flex-wrap: $fw;
+    }    
+    @if $fd {
+        flex-direction: $fd;
+    } 
+}

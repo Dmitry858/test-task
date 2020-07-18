@@ -1,0 +1,34 @@
+mixin card-col(data)
+
+    .card-col
+        if(!data.disabled)
+            .card
+                p.legend Сказочное заморское яство
+                h3 Нямушка <br/> #[span= data.title]
+                p.description #[span=data.numPortion] #{data.portion}
+                p.description #[span=data.numGift] #{data.gift} в подарок
+                |
+                |
+                img(src="./img/cat.png", alt="Кошка")
+                .label-weight= data.weight 
+                    span кг
+            p.comment Чего сидишь? Порадуй котэ, 
+                a(href="#") купи.
+            p.comment.comment-selected.hidden= data.comment
+            p.comment.comment-disabled.hidden Печалька, #{data.title} закончился.
+        else
+            .card.disabled
+                p.legend Сказочное заморское яство
+                h3 Нямушка <br/> #[span= data.title]
+                p.description #[span=data.numPortion] #{data.portion}
+                p.description #[span=data.numGift] #{data.gift} в подарок
+                p.description заказчик доволен
+                |
+                |
+                img(src="./img/cat.png", alt="Кошка")
+                .label-weight= data.weight 
+                    span кг
+            p.comment.hidden Чего сидишь? Порадуй котэ, 
+                a(href="#") купи.
+            p.comment.comment-selected.hidden= data.comment
+            p.comment.comment-disabled Печалька, #{data.title} закончился.        

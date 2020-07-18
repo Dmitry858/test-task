@@ -1,0 +1,17 @@
+extends layout/main
+
+block variables
+    - var pageTitle = 'Тестовое задание Funbox'
+    - var pageDesc = ''
+
+block content
+    .content
+        .container
+            h1 Ты сегодня покормил кота?
+
+            .cards
+                +card-col({title: 'с фуа-гра', numPortion: 10, portion: 'порций', numGift: '', gift: 'мышь', weight: '0,5', comment: 'Печень утки разварная с артишоками.', disabled: false})
+
+                +card-col({title: 'с рыбой', numPortion: 40, portion: 'порций', numGift: 2, gift: 'мыши', weight: 2, comment: 'Головы щучьи с чесноком да свежайшая сёмгушка.', disabled: false})
+
+                +card-col({title: 'с курой', numPortion: 100, portion: 'порций', numGift: 5, gift: 'мышей', weight: 5, comment: 'Филе из цыплят с трюфелями в бульоне.', disabled: true})

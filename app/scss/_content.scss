@@ -1,0 +1,9 @@
+.content {
+    @include flexbox(false, center);
+    flex-grow: 1;
+    padding: 0px 0 23px;
+
+    .container {
+        @include flexbox(center, center, wrap, column);
+    }
+}
